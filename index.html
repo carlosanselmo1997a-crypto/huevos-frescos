@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huevos Frescos de la Granja - Inicio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN SUPERIOR --- */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0 90px;
+            height: 105px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-texto {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-texto .titulo-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1e3a1e;
+        }
+
+        .logo-texto .subtitulo-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #16a34a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 20px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #d97706;
+            border-bottom: 3px solid #d97706;
+            padding-bottom: 6px;
+        }
+
+        .nav-links a.carrito-link {
+            color: #d97706;
+            font-weight: 700;
+        }
+
+        /* --- BANNER PRINCIPAL CON IMAGEN CORREGIDA --- */
+        .hero {
+            position: relative;
+            background-image: url('img/banner-granja.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 105px 120px 0 120px;
+        }
+
+        /* FILTRO DE TRANSPARENCIA CORREGIDO (Permite ver la foto clara) */
+        .hero-overlay {
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 {
+            font-size: 78px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Sombra al texto para leerlo fácil */
+        }
+
+        .hero-content p {
+            font-size: 26px;
+            margin-bottom: 45px;
+            color: #f1f5f9;
+            line-height: 1.5;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+        }
+
+        .btn-ver-productos {
+            background-color: #ea580c;
+            color: #ffffff;
+            padding: 22px 55px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 24px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 25px -3px rgba(234, 88, 12, 0.6);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-ver-productos:hover {
+            background-color: #c2410c;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <nav>
+        <a href="index.html" class="logo-area">
+            <img src="img/logo-huevos.png" alt="Logo Granja">
+            <div class="logo-texto">
+                <span class="titulo-logo">Huevos</span>
+                <span class="subtitulo-logo">Frescos</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="productos.html">Nuestros Huevos</a></li>
+            <li><a href="#">La Granja</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#" class="carrito-link">Carrito 🛒</a></li>
+        </ul>
+    </nav>
+
+    <!-- BANNER PANTALLA COMPLETA -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>HUEVOS FRESCOS DE GRANJA A TU MESA</h1>
+            <p>La frescura que mereces, directos del campo en El Salvador. Desde $3.00 el cartón.</p>
+            <a href="productos.html" class="btn-ver-productos">Ver Productos</a>
+        </div>
+    </section>
+
+</body>
+</html>
