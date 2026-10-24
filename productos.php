@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Validar que el usuario haya iniciado sesión en XAMPP
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.html?error=acceso_denegado");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,7 +74,7 @@
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             list-style: none;
             align-items: center;
         }
@@ -73,7 +82,7 @@
         .nav-links a {
             text-decoration: none;
             color: #334155;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             transition: color 0.2s;
         }
@@ -82,6 +91,19 @@
             color: #d97706;
             border-bottom: 3px solid #d97706;
             padding-bottom: 6px;
+        }
+
+        .btn-logout {
+            background-color: #ef4444;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            border-bottom: none !important;
+        }
+
+        .btn-logout:hover {
+            background-color: #dc2626;
         }
 
         .carrito-btn {
@@ -122,8 +144,16 @@
             font-size: 48px;
             font-weight: 900;
             color: #0f172a;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
             text-align: center;
+        }
+
+        .welcome-msg {
+            text-align: center;
+            font-size: 20px;
+            color: #16a34a;
+            font-weight: 700;
+            margin-bottom: 40px;
         }
 
         .productos-grid {
@@ -345,7 +375,7 @@
 
     <!-- BARRA SUPERIOR -->
     <nav>
-        <a href="index.html" class="logo-area">
+        <a href="productos.php" class="logo-area">
             <img src="img/logo-huevos.png" alt="Logo Granja">
             <div class="logo-texto">
                 <span class="titulo-logo">Huevos</span>
@@ -354,21 +384,20 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html" class="active">Nuestros Huevos</a></li>
-            <li><a href="#">La Granja</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="productos.php" class="active">Nuestros Huevos</a></li>
             <li>
                 <button class="carrito-link carrito-btn" onclick="abrirCarrito()">
                     🛒 Carrito <span class="badge-cart-count" id="cart-count">0</span>
                 </button>
             </li>
+            <li><a href="auth/logout.php" class="btn-logout">Cerrar Sesión</a></li>
         </ul>
     </nav>
 
     <!-- CATÁLOGO -->
     <div class="container">
         <h1 class="section-title">Nuestros Cartones Disponibles</h1>
+        <p class="welcome-msg">Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre'] ?? 'Cliente'); ?></p>
         
         <div class="productos-grid">
             
